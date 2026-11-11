@@ -138,7 +138,7 @@ export const SolutionsPage: React.FC<SolutionsPageProps> = ({
 
                   <button
                     onClick={onOpenConsultation}
-                    className="inline-flex items-center gap-1.5 text-xs font-bold text-cyan-400 hover:text-cyan-300 shrink-0"
+                    className="min-h-[44px] inline-flex items-center gap-1.5 text-xs font-bold text-cyan-400 hover:text-cyan-300 shrink-0 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 rounded-lg px-2"
                   >
                     <span>Consult on Similar Architecture</span>
                     <ArrowRight className="w-3.5 h-3.5" />
@@ -159,7 +159,7 @@ export const SolutionsPage: React.FC<SolutionsPageProps> = ({
           </p>
           <button
             onClick={onOpenConsultation}
-            className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 text-navy-950 font-bold px-8 py-3.5 rounded-xl text-sm transition-all shadow-md"
+            className="w-full sm:w-auto min-h-[44px] inline-flex items-center justify-center bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 text-navy-950 font-bold px-8 py-3.5 rounded-xl text-sm transition-all shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400"
           >
             Request Architecture Review
           </button>

@@ -111,7 +111,7 @@ export const ContactPage: React.FC = () => {
                       href={COMPANY_INFO.whatsappUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-emerald-400 hover:text-emerald-300 font-semibold flex items-center gap-1 transition-colors"
+                      className="min-h-[44px] inline-flex items-center gap-1.5 text-emerald-400 hover:text-emerald-300 font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 rounded-lg"
                     >
                       <span>Start WhatsApp Conversation</span>
                       <ArrowRight className="w-3.5 h-3.5" />
@@ -177,10 +177,11 @@ export const ContactPage: React.FC = () => {
                   <form onSubmit={handleSubmit} className="space-y-4">
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div>
-                        <label className="block text-xs font-semibold text-slate-300 mb-1.5">
+                        <label htmlFor="contact-fullname" className="block text-xs font-semibold text-slate-300 mb-1.5">
                           Full Name *
                         </label>
                         <input
+                          id="contact-fullname"
                           type="text"
                           required
                           value={fullName}
@@ -190,10 +191,11 @@ export const ContactPage: React.FC = () => {
                         />
                       </div>
                       <div>
-                        <label className="block text-xs font-semibold text-slate-300 mb-1.5">
+                        <label htmlFor="contact-email" className="block text-xs font-semibold text-slate-300 mb-1.5">
                           Email Address *
                         </label>
                         <input
+                          id="contact-email"
                           type="email"
                           required
                           value={email}
@@ -206,10 +208,11 @@ export const ContactPage: React.FC = () => {
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div>
-                        <label className="block text-xs font-semibold text-slate-300 mb-1.5">
+                        <label htmlFor="contact-phone" className="block text-xs font-semibold text-slate-300 mb-1.5">
                           Phone Number *
                         </label>
                         <input
+                          id="contact-phone"
                           type="tel"
                           required
                           value={phone}
@@ -219,10 +222,11 @@ export const ContactPage: React.FC = () => {
                         />
                       </div>
                       <div>
-                        <label className="block text-xs font-semibold text-slate-300 mb-1.5">
+                        <label htmlFor="contact-service" className="block text-xs font-semibold text-slate-300 mb-1.5">
                           Service of Interest
                         </label>
                         <select
+                          id="contact-service"
                           value={serviceCategory}
                           onChange={(e) => setServiceCategory(e.target.value)}
                           className="w-full bg-navy-950 border border-slate-700 rounded-xl px-3.5 py-2.5 text-sm text-white focus:outline-none focus:ring-2 focus:ring-cyan-400"
@@ -237,10 +241,11 @@ export const ContactPage: React.FC = () => {
                     </div>
 
                     <div>
-                      <label className="block text-xs font-semibold text-slate-300 mb-1.5">
+                      <label htmlFor="contact-message" className="block text-xs font-semibold text-slate-300 mb-1.5">
                         Your Message / Operational Details *
                       </label>
                       <textarea
+                        id="contact-message"
                         required
                         rows={4}
                         value={message}
@@ -268,7 +273,7 @@ export const ContactPage: React.FC = () => {
                       <button
                         type="submit"
                         disabled={submitting}
-                        className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-navy-950 font-bold py-3.5 rounded-xl text-sm transition-all shadow-md disabled:opacity-50"
+                        className="w-full min-h-[44px] flex items-center justify-center gap-2 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-navy-950 font-bold py-3.5 rounded-xl text-sm transition-all shadow-md disabled:opacity-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400"
                       >
                         {submitting ? (
                           <div className="w-5 h-5 border-2 border-navy-950 border-t-transparent rounded-full animate-spin" />

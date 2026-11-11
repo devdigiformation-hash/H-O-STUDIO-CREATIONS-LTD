@@ -42,7 +42,7 @@ export const CareersPage: React.FC<CareersPageProps> = ({
           {CAREER_VACANCIES.map((vacancy) => (
             <div
               key={vacancy.id}
-              className="p-8 sm:p-10 rounded-3xl bg-navy-900 border border-slate-800 hover:border-cyan-500/40 transition-all shadow-xl"
+              className="p-5 sm:p-8 lg:p-10 rounded-3xl bg-navy-900 border border-slate-800 hover:border-cyan-500/40 transition-all shadow-xl"
             >
               {/* Vacancy Header Bar */}
               <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 pb-6 border-b border-slate-800">
@@ -61,7 +61,7 @@ export const CareersPage: React.FC<CareersPageProps> = ({
                   </div>
                   <button
                     onClick={() => onOpenApply(vacancy.id)}
-                    className="flex items-center gap-1.5 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-navy-950 font-bold px-6 py-2.5 rounded-xl text-sm shadow-md transition-all"
+                    className="min-h-[44px] flex items-center justify-center gap-1.5 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-navy-950 font-bold px-6 py-2.5 rounded-xl text-sm shadow-md transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400"
                   >
                     <span>Apply Now</span>
                     <ArrowUpRight className="w-4 h-4" />
@@ -120,7 +120,7 @@ export const CareersPage: React.FC<CareersPageProps> = ({
                 </div>
                 <button
                   onClick={() => onOpenApply(vacancy.id)}
-                  className="inline-flex items-center justify-center gap-2 bg-slate-800 hover:bg-slate-700 text-white font-semibold px-6 py-2.5 rounded-xl text-xs sm:text-sm transition-all"
+                  className="w-full sm:w-auto min-h-[44px] inline-flex items-center justify-center gap-2 bg-slate-800 hover:bg-slate-700 text-white font-semibold px-4 sm:px-6 py-2.5 rounded-xl text-xs sm:text-sm transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400"
                 >
                   <span>Submit CV for {vacancy.title}</span>
                   <ArrowUpRight className="w-4 h-4" />
@@ -144,7 +144,7 @@ export const CareersPage: React.FC<CareersPageProps> = ({
           </p>
           <button
             onClick={() => onOpenApply()}
-            className="bg-cyan-500 hover:bg-cyan-400 text-navy-950 font-bold px-6 py-2.5 rounded-xl text-sm transition-colors"
+            className="min-h-[44px] inline-flex items-center justify-center bg-cyan-500 hover:bg-cyan-400 text-navy-950 font-bold px-6 py-2.5 rounded-xl text-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400"
           >
             Start Your Application
           </button>

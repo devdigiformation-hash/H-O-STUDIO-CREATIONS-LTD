@@ -27,6 +27,17 @@ export const Header: React.FC<HeaderProps> = ({
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Lock body scroll when mobile menu is open, restore on close or unmount
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      const originalOverflow = document.body.style.overflow;
+      document.body.style.overflow = 'hidden';
+      return () => {
+        document.body.style.overflow = originalOverflow;
+      };
+    }
+  }, [mobileMenuOpen]);
+
   const navItems: { label: string; tab: PageTab }[] = [
     { label: 'Home', tab: 'home' },
     { label: 'About', tab: 'about' },
@@ -78,15 +89,15 @@ export const Header: React.FC<HeaderProps> = ({
             </div>
           </button>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-1 xl:gap-2">
+          {/* Desktop Navigation (Enabled on xl: 1280px+ to ensure zero wrapping and spacious alignment) */}
+          <nav className="hidden xl:flex items-center gap-1.5 2xl:gap-2">
             {navItems.map((item) => {
               const isActive = currentTab === item.tab;
               return (
                 <button
                   key={item.tab}
                   onClick={() => handleNavClick(item.tab)}
-                  className={`px-3.5 py-2 rounded-lg text-sm font-medium transition-all ${
+                  className={`px-3.5 py-2 rounded-lg text-sm font-medium transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 ${
                     isActive
                       ? 'text-cyan-400 bg-cyan-950/40 border border-cyan-500/30 shadow-sm'
                       : 'text-slate-300 hover:text-white hover:bg-slate-800/50'
@@ -98,17 +109,17 @@ export const Header: React.FC<HeaderProps> = ({
             })}
           </nav>
 
-          {/* Desktop Action Buttons */}
-          <div className="hidden lg:flex items-center gap-3">
+          {/* Desktop Action Buttons (Standardised 40px Height) */}
+          <div className="hidden xl:flex items-center gap-3">
             <button
               onClick={onOpenConsultation}
-              className="text-xs font-semibold text-slate-300 hover:text-white px-3.5 py-2 rounded-lg border border-slate-700 hover:border-slate-500 transition-all hover:bg-slate-800/40"
+              className="h-10 text-xs font-semibold text-slate-300 hover:text-white px-4 py-2 rounded-lg border border-slate-700 hover:border-slate-500 transition-all hover:bg-slate-800/40 flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400"
             >
               Consultation
             </button>
             <button
               onClick={onOpenApply}
-              className="flex items-center gap-1.5 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-navy-950 font-bold px-4 py-2 rounded-lg text-sm shadow-md hover:shadow-cyan-500/25 transition-all transform hover:-translate-y-0.5 active:translate-y-0"
+              className="h-10 flex items-center justify-center gap-1.5 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-navy-950 font-bold px-4 py-2 rounded-lg text-sm shadow-md hover:shadow-cyan-500/25 transition-all transform hover:-translate-y-0.5 active:translate-y-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400"
               aria-label="Apply Now - Career Opportunities"
             >
               <span>Apply Now</span>
@@ -116,18 +127,19 @@ export const Header: React.FC<HeaderProps> = ({
             </button>
           </div>
 
-          {/* Mobile Hamburger Button */}
-          <div className="flex items-center gap-2 lg:hidden">
+          {/* Mobile / Tablet Action Group (<xl Breakpoint, Standardised 44x44px Touch Targets) */}
+          <div className="flex items-center gap-2 xl:hidden">
             <button
               onClick={onOpenApply}
-              className="bg-cyan-500 hover:bg-cyan-400 text-navy-950 font-bold px-3 py-1.5 rounded-lg text-xs shadow-sm"
-              aria-label="Apply Now"
+              className="min-h-[44px] px-3.5 py-2 rounded-lg text-xs font-bold bg-cyan-500 hover:bg-cyan-400 text-navy-950 shadow-sm flex items-center justify-center gap-1 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400"
+              aria-label="Apply Now - Career Vacancies"
             >
-              Apply
+              <span>Apply</span>
+              <ArrowUpRight className="w-3.5 h-3.5 text-navy-950" />
             </button>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 text-slate-300 hover:text-white hover:bg-slate-800/60 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-cyan-400"
+              className="min-h-[44px] min-w-[44px] p-2.5 text-slate-300 hover:text-white hover:bg-slate-800/60 rounded-lg transition-colors flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400"
               aria-label="Toggle navigation menu"
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -136,9 +148,9 @@ export const Header: React.FC<HeaderProps> = ({
         </div>
       </div>
 
-      {/* Mobile Drawer */}
+      {/* Mobile / Tablet Drawer */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-navy-950/98 border-b border-slate-800 px-4 pt-3 pb-6 shadow-2xl backdrop-blur-xl animate-in slide-in-from-top-2 duration-200">
+        <div className="xl:hidden bg-navy-950/98 border-b border-slate-800 px-4 pt-3 pb-6 shadow-2xl backdrop-blur-xl animate-in slide-in-from-top-2 duration-200">
           <nav className="flex flex-col gap-1.5">
             {navItems.map((item) => {
               const isActive = currentTab === item.tab;
@@ -146,7 +158,7 @@ export const Header: React.FC<HeaderProps> = ({
                 <button
                   key={item.tab}
                   onClick={() => handleNavClick(item.tab)}
-                  className={`text-left px-4 py-3 rounded-lg text-base font-medium transition-all ${
+                  className={`text-left px-4 py-3 rounded-lg text-base font-medium transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 ${
                     isActive
                       ? 'text-cyan-400 bg-cyan-950/50 border border-cyan-500/30'
                       : 'text-slate-300 hover:text-white hover:bg-slate-800/40'

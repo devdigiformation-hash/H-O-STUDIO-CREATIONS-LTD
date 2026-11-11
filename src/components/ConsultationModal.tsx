@@ -66,19 +66,19 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
 
   return (
     <div className="fixed inset-0 z-50 overflow-y-auto bg-navy-950/80 backdrop-blur-md flex items-center justify-center p-4">
-      <div className="relative bg-navy-900 border border-slate-700/80 rounded-2xl max-w-lg w-full p-6 sm:p-8 shadow-2xl text-left">
+      <div className="relative bg-navy-900 border border-slate-700/80 rounded-2xl max-w-lg w-full p-6 sm:p-8 shadow-2xl text-left max-h-[90dvh] flex flex-col">
         
-        {/* Close Button */}
+        {/* Close Button with standard touch target */}
         <button
           onClick={handleReset}
-          className="absolute top-5 right-5 text-slate-400 hover:text-white p-1 rounded-lg hover:bg-slate-800 transition-colors"
+          className="absolute top-4 right-4 text-slate-400 hover:text-white min-w-[44px] min-h-[44px] w-11 h-11 flex items-center justify-center rounded-lg hover:bg-slate-800 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400"
           aria-label="Close consultation modal"
         >
           <X className="w-5 h-5" />
         </button>
 
         {submitted ? (
-          <div className="text-center py-8">
+          <div className="text-center py-8 overflow-y-auto">
             <div className="w-16 h-16 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 mx-auto flex items-center justify-center mb-4">
               <CheckCircle2 className="w-8 h-8" />
             </div>
@@ -93,13 +93,13 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
             </div>
             <button
               onClick={handleReset}
-              className="bg-cyan-500 hover:bg-cyan-400 text-navy-950 font-bold px-6 py-2.5 rounded-xl text-sm transition-colors"
+              className="min-h-[44px] bg-cyan-500 hover:bg-cyan-400 text-navy-950 font-bold px-6 py-2.5 rounded-xl text-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400"
             >
               Done
             </button>
           </div>
         ) : (
-          <div>
+          <div className="overflow-y-auto pr-1">
             <div className="mb-6">
               <span className="text-xs font-semibold uppercase tracking-wider text-cyan-400">
                 Direct Client Advisory
@@ -115,10 +115,11 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-semibold text-slate-300 mb-1.5">
+                  <label htmlFor="cons-fullname" className="block text-xs font-semibold text-slate-300 mb-1.5">
                     Your Name *
                   </label>
                   <input
+                    id="cons-fullname"
                     type="text"
                     required
                     value={fullName}
@@ -128,10 +129,11 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-semibold text-slate-300 mb-1.5">
+                  <label htmlFor="cons-email" className="block text-xs font-semibold text-slate-300 mb-1.5">
                     Business Email *
                   </label>
                   <input
+                    id="cons-email"
                     type="email"
                     required
                     value={email}
@@ -144,10 +146,11 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-semibold text-slate-300 mb-1.5">
+                  <label htmlFor="cons-phone" className="block text-xs font-semibold text-slate-300 mb-1.5">
                     Phone Number *
                   </label>
                   <input
+                    id="cons-phone"
                     type="tel"
                     required
                     value={phone}
@@ -157,10 +160,11 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-semibold text-slate-300 mb-1.5">
+                  <label htmlFor="cons-service" className="block text-xs font-semibold text-slate-300 mb-1.5">
                     Consultancy Focus *
                   </label>
                   <select
+                    id="cons-service"
                     value={serviceCategory}
                     onChange={(e) => setServiceCategory(e.target.value)}
                     className="w-full bg-navy-950 border border-slate-700 rounded-xl px-3.5 py-2 text-sm text-white focus:outline-none focus:ring-2 focus:ring-cyan-400"
@@ -175,10 +179,11 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-slate-300 mb-1.5">
+                <label htmlFor="cons-scope" className="block text-xs font-semibold text-slate-300 mb-1.5">
                   Project Scope / Operational Requirements *
                 </label>
                 <textarea
+                  id="cons-scope"
                   required
                   rows={3}
                   value={projectSummary}
@@ -189,10 +194,11 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-slate-300 mb-1.5">
+                <label htmlFor="cons-timeline" className="block text-xs font-semibold text-slate-300 mb-1.5">
                   Estimated Target Timeline
                 </label>
                 <select
+                  id="cons-timeline"
                   value={timeline}
                   onChange={(e) => setTimeline(e.target.value)}
                   className="w-full bg-navy-950 border border-slate-700 rounded-xl px-3.5 py-2 text-sm text-white focus:outline-none focus:ring-2 focus:ring-cyan-400"
@@ -222,7 +228,7 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
                 <button
                   type="submit"
                   disabled={submitting}
-                  className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-navy-950 font-bold py-3 rounded-xl text-sm transition-all shadow-md disabled:opacity-50"
+                  className="w-full min-h-[44px] flex items-center justify-center gap-2 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-navy-950 font-bold py-3 rounded-xl text-sm transition-all shadow-md disabled:opacity-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400"
                 >
                   {submitting ? (
                     <div className="w-5 h-5 border-2 border-navy-950 border-t-transparent rounded-full animate-spin" />

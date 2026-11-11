@@ -57,7 +57,7 @@ export const CinematicHero: React.FC<CinematicHeroProps> = ({
 
           {/* Tasteful cinematic scrim overlay to guarantee text legibility */}
           <div className="absolute inset-0 bg-gradient-to-t from-navy-950 via-navy-950/60 to-navy-950/80 z-10" />
-          <div className="absolute inset-0 bg-radial-gradient from-transparent via-navy-950/40 to-navy-950/80 z-10 pointer-events-none" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(7,11,20,0.45)_0%,_rgba(7,11,20,0.8)_65%,_rgba(7,11,20,0.98)_100%)] z-10 pointer-events-none" />
         </div>
 
         {/* Semantic Content Overlay */}
@@ -78,23 +78,23 @@ export const CinematicHero: React.FC<CinematicHeroProps> = ({
             </span>
           </h1>
 
-          {/* Value Proposition */}
-          <p className="max-w-2xl mx-auto text-base sm:text-lg md:text-xl text-slate-300 leading-relaxed font-normal mb-8 text-shadow">
+          {/* Value Proposition with high-contrast drop shadow */}
+          <p className="max-w-2xl mx-auto text-base sm:text-lg md:text-xl text-slate-200 leading-relaxed font-normal mb-8 text-shadow-hero">
             We architect resilient server networks, bespoke software ecosystems, and high-security enterprise environments for ambitious UK businesses.
           </p>
 
-          {/* High-conversion CTA Action Group */}
+          {/* High-conversion Standardised CTA Action Group (48px height) */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-md mx-auto mb-10">
             <button
               onClick={onExploreServices}
-              className="w-full sm:w-auto flex items-center justify-center gap-2 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-navy-950 font-bold px-7 py-3.5 rounded-xl shadow-lg hover:shadow-cyan-500/30 transition-all transform hover:-translate-y-0.5 active:translate-y-0 text-sm sm:text-base"
+              className="w-full sm:w-auto min-h-[48px] h-12 inline-flex items-center justify-center gap-2 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-navy-950 font-bold px-7 rounded-xl shadow-lg hover:shadow-cyan-500/30 transition-all transform hover:-translate-y-0.5 active:translate-y-0 text-sm sm:text-base border border-transparent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400"
             >
               <span>Explore IT Services</span>
               <ArrowRight className="w-4 h-4 text-navy-950" />
             </button>
             <button
               onClick={onRequestConsultation}
-              className="w-full sm:w-auto px-7 py-3.5 rounded-xl border border-slate-700 hover:border-cyan-400/50 text-slate-200 hover:text-white font-semibold text-sm sm:text-base bg-navy-900/80 hover:bg-navy-900 backdrop-blur-md transition-all"
+              className="w-full sm:w-auto min-h-[48px] h-12 inline-flex items-center justify-center px-7 rounded-xl border border-slate-700 hover:border-cyan-400/50 text-slate-200 hover:text-white font-semibold text-sm sm:text-base bg-navy-900/80 hover:bg-navy-900 backdrop-blur-md transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400"
             >
               Request a Consultation
             </button>

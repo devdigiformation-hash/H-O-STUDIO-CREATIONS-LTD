@@ -83,7 +83,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
                 <span className="text-xs text-slate-400">Fixed-scope &amp; Retainer Advisory</span>
                 <button
                   onClick={() => onOpenConsultation(service.id)}
-                  className="inline-flex items-center gap-1.5 text-xs font-bold text-cyan-400 hover:text-cyan-300 transition-colors"
+                  className="min-h-[44px] inline-flex items-center gap-1.5 text-xs font-bold text-cyan-400 hover:text-cyan-300 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 rounded-lg px-2"
                 >
                   <span>Request Proposal</span>
                   <ArrowRight className="w-3.5 h-3.5" />
@@ -104,13 +104,13 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <button
               onClick={() => onOpenConsultation()}
-              className="bg-cyan-500 hover:bg-cyan-400 text-navy-950 font-bold px-7 py-3 rounded-xl text-sm transition-all shadow-md"
+              className="w-full sm:w-auto min-h-[44px] inline-flex items-center justify-center bg-cyan-500 hover:bg-cyan-400 text-navy-950 font-bold px-7 py-3 rounded-xl text-sm transition-all shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400"
             >
               Request Scoping Consultation
             </button>
             <button
               onClick={() => onNavigate('contact')}
-              className="px-7 py-3 rounded-xl border border-slate-700 text-slate-200 hover:text-white text-sm font-semibold hover:bg-slate-800/40 transition-all"
+              className="w-full sm:w-auto min-h-[44px] inline-flex items-center justify-center px-7 py-3 rounded-xl border border-slate-700 text-slate-200 hover:text-white text-sm font-semibold hover:bg-slate-800/40 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400"
             >
               Direct Contact Details
             </button>

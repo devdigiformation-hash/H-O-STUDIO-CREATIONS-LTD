@@ -125,7 +125,7 @@ export const HomePage: React.FC<HomePageProps> = ({
 
                 <button
                   onClick={() => onOpenConsultation(srv.id)}
-                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-cyan-400 hover:text-cyan-300 group/btn pt-2 border-t border-slate-800/80"
+                  className="min-h-[44px] inline-flex items-center gap-1.5 text-xs font-semibold text-cyan-400 hover:text-cyan-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 rounded-lg group/btn pt-2 border-t border-slate-800/80 transition-colors"
                 >
                   <span>Enquire for this service</span>
                   <ChevronRight className="w-3.5 h-3.5 transform group-hover/btn:translate-x-1 transition-transform" />
@@ -189,7 +189,7 @@ export const HomePage: React.FC<HomePageProps> = ({
             </div>
             <button
               onClick={() => onNavigate('careers')}
-              className="inline-flex items-center gap-1.5 text-sm font-semibold text-cyan-400 hover:text-cyan-300"
+              className="min-h-[44px] inline-flex items-center gap-1.5 text-sm font-semibold text-cyan-400 hover:text-cyan-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 rounded-lg px-2"
             >
               <span>View Full Careers Page</span>
               <ArrowRight className="w-4 h-4" />
@@ -200,17 +200,17 @@ export const HomePage: React.FC<HomePageProps> = ({
             {CAREER_VACANCIES.map((vac) => (
               <div
                 key={vac.id}
-                className="p-8 rounded-2xl bg-navy-950 border border-slate-800 hover:border-cyan-500/40 transition-all flex flex-col justify-between"
+                className="p-5 sm:p-8 rounded-2xl bg-navy-950 border border-slate-800 hover:border-cyan-500/40 transition-all flex flex-col justify-between"
               >
                 <div>
-                  <div className="flex items-start justify-between gap-4 mb-4">
+                  <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3 mb-4">
                     <div>
                       <span className="text-xs text-slate-400">{vac.department}</span>
-                      <h3 className="text-2xl font-bold text-white font-heading mt-1">
+                      <h3 className="text-xl sm:text-2xl font-bold text-white font-heading mt-1">
                         {vac.title}
                       </h3>
                     </div>
-                    <span className="px-3 py-1 rounded-full bg-cyan-950 text-cyan-400 text-xs font-bold border border-cyan-500/30 shrink-0">
+                    <span className="px-3 py-1 rounded-full bg-cyan-950 text-cyan-400 text-xs font-bold border border-cyan-500/30 shrink-0 self-start sm:self-auto">
                       {vac.salary}
                     </span>
                   </div>
@@ -232,11 +232,11 @@ export const HomePage: React.FC<HomePageProps> = ({
                   </div>
                 </div>
 
-                <div className="pt-6 border-t border-slate-800 flex items-center justify-between">
-                  <span className="text-xs text-slate-500">{vac.type}</span>
+                <div className="pt-6 border-t border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                  <span className="text-xs text-slate-400">{vac.type}</span>
                   <button
                     onClick={() => onOpenApply(vac.id)}
-                    className="flex items-center gap-1.5 bg-cyan-500 hover:bg-cyan-400 text-navy-950 font-bold px-4 py-2 rounded-xl text-xs sm:text-sm shadow-md transition-all"
+                    className="w-full sm:w-auto min-h-[44px] flex items-center justify-center gap-1.5 bg-cyan-500 hover:bg-cyan-400 text-navy-950 font-bold px-4 py-2 rounded-xl text-xs sm:text-sm shadow-md transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400"
                   >
                     <span>Apply for this Role</span>
                     <ArrowUpRight className="w-4 h-4" />
@@ -251,7 +251,7 @@ export const HomePage: React.FC<HomePageProps> = ({
       {/* 8. CONSULTATION LEAD CONVERSION BANNER */}
       <section className="py-20 bg-gradient-to-b from-navy-900 to-navy-950 border-t border-slate-800 relative z-20">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="p-10 sm:p-14 rounded-3xl bg-gradient-to-r from-navy-900 via-navy-850 to-navy-900 border border-cyan-500/30 shadow-2xl relative overflow-hidden">
+          <div className="p-8 sm:p-14 rounded-3xl bg-gradient-to-r from-navy-900 via-navy-850 to-navy-900 border border-cyan-500/30 shadow-2xl relative overflow-hidden">
             <div className="relative z-10">
               <span className="text-xs font-bold uppercase tracking-widest text-cyan-400">
                 Direct Technical Engagement
@@ -265,13 +265,13 @@ export const HomePage: React.FC<HomePageProps> = ({
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <button
                   onClick={() => onOpenConsultation()}
-                  className="w-full sm:w-auto bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-navy-950 font-bold px-8 py-3.5 rounded-xl shadow-lg text-sm sm:text-base transition-all"
+                  className="w-full sm:w-auto min-h-[48px] h-12 inline-flex items-center justify-center bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-navy-950 font-bold px-8 rounded-xl shadow-lg text-sm sm:text-base transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400"
                 >
                   Schedule Initial Consultation
                 </button>
                 <button
                   onClick={() => onNavigate('contact')}
-                  className="w-full sm:w-auto px-8 py-3.5 rounded-xl border border-slate-700 text-slate-200 hover:text-white font-semibold text-sm sm:text-base hover:bg-slate-800/40 transition-all"
+                  className="w-full sm:w-auto min-h-[48px] h-12 inline-flex items-center justify-center px-8 rounded-xl border border-slate-700 text-slate-200 hover:text-white font-semibold text-sm sm:text-base hover:bg-slate-800/40 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400"
                 >
                   View Direct Contact Details
                 </button>

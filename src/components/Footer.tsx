@@ -56,7 +56,7 @@ export const Footer: React.FC<FooterProps> = ({
               <li>
                 <button
                   onClick={() => onNavigate('home')}
-                  className="hover:text-cyan-400 transition-colors"
+                  className="hover:text-cyan-400 transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-cyan-400 rounded"
                 >
                   Home
                 </button>
@@ -64,7 +64,7 @@ export const Footer: React.FC<FooterProps> = ({
               <li>
                 <button
                   onClick={() => onNavigate('about')}
-                  className="hover:text-cyan-400 transition-colors"
+                  className="hover:text-cyan-400 transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-cyan-400 rounded"
                 >
                   About Us
                 </button>
@@ -72,7 +72,7 @@ export const Footer: React.FC<FooterProps> = ({
               <li>
                 <button
                   onClick={() => onNavigate('services')}
-                  className="hover:text-cyan-400 transition-colors"
+                  className="hover:text-cyan-400 transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-cyan-400 rounded"
                 >
                   IT Services
                 </button>
@@ -80,7 +80,7 @@ export const Footer: React.FC<FooterProps> = ({
               <li>
                 <button
                   onClick={() => onNavigate('solutions')}
-                  className="hover:text-cyan-400 transition-colors"
+                  className="hover:text-cyan-400 transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-cyan-400 rounded"
                 >
                   Solutions
                 </button>
@@ -88,7 +88,7 @@ export const Footer: React.FC<FooterProps> = ({
               <li>
                 <button
                   onClick={() => onNavigate('careers')}
-                  className="hover:text-cyan-400 transition-colors"
+                  className="hover:text-cyan-400 transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-cyan-400 rounded"
                 >
                   Careers
                 </button>
@@ -105,7 +105,7 @@ export const Footer: React.FC<FooterProps> = ({
               <li>
                 <button
                   onClick={onOpenApply}
-                  className="text-cyan-400 hover:text-cyan-300 font-medium flex items-center gap-1 transition-colors"
+                  className="text-cyan-400 hover:text-cyan-300 font-medium flex items-center gap-1 transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-cyan-400 rounded"
                 >
                   <span>Apply Now</span>
                   <ArrowUpRight className="w-3.5 h-3.5" />
@@ -114,7 +114,7 @@ export const Footer: React.FC<FooterProps> = ({
               <li>
                 <button
                   onClick={() => onNavigate('careers')}
-                  className="hover:text-slate-200 transition-colors"
+                  className="hover:text-slate-200 transition-colors text-left focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-cyan-400 rounded"
                 >
                   IT Technician (£35k–£45k)
                 </button>
@@ -122,7 +122,7 @@ export const Footer: React.FC<FooterProps> = ({
               <li>
                 <button
                   onClick={() => onNavigate('careers')}
-                  className="hover:text-slate-200 transition-colors"
+                  className="hover:text-slate-200 transition-colors text-left focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-cyan-400 rounded"
                 >
                   Business Development (£50k–£60k)
                 </button>
@@ -130,7 +130,7 @@ export const Footer: React.FC<FooterProps> = ({
               <li>
                 <button
                   onClick={onOpenConsultation}
-                  className="hover:text-slate-200 transition-colors"
+                  className="hover:text-slate-200 transition-colors text-left focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-cyan-400 rounded"
                 >
                   Request Consultation
                 </button>
@@ -179,13 +179,13 @@ export const Footer: React.FC<FooterProps> = ({
           <div className="flex items-center gap-6">
             <button
               onClick={() => onNavigate('privacy')}
-              className="hover:text-slate-300 transition-colors"
+              className="hover:text-slate-300 transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-cyan-400 rounded px-1"
             >
               Privacy Policy &amp; Data Practices
             </button>
             <button
               onClick={() => onNavigate('contact')}
-              className="hover:text-slate-300 transition-colors"
+              className="hover:text-slate-300 transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-cyan-400 rounded px-1"
             >
               Contact Us
             </button>

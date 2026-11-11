@@ -100,7 +100,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
               <div className="pt-2">
                 <button
                   onClick={onOpenConsultation}
-                  className="w-full bg-cyan-500 hover:bg-cyan-400 text-navy-950 font-bold py-2.5 rounded-xl text-xs sm:text-sm shadow-md transition-colors"
+                  className="w-full min-h-[44px] flex items-center justify-center bg-cyan-500 hover:bg-cyan-400 text-navy-950 font-bold py-2.5 rounded-xl text-xs sm:text-sm shadow-md transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400"
                 >
                   Request Technical Consultation
                 </button>
@@ -187,7 +187,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
         <div className="text-center">
           <button
             onClick={() => onNavigate('contact')}
-            className="inline-flex items-center gap-2 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 text-navy-950 font-bold px-7 py-3 rounded-xl text-sm shadow-md transition-all"
+            className="w-full sm:w-auto min-h-[44px] inline-flex items-center justify-center gap-2 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 text-navy-950 font-bold px-7 py-3 rounded-xl text-sm shadow-md transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400"
           >
             <span>Connect with our Senior Consultants</span>
             <ArrowRight className="w-4 h-4" />
