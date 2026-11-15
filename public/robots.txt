@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ho-studio-creations-ltd.vercel.app/sitemap.xml
