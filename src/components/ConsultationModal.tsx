@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { COMPANY_INFO, CONSULTANCY_SERVICES } from '../data/company';
 import { X, Send, CheckCircle2 } from 'lucide-react';
 
@@ -25,6 +25,28 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [inquiryRef, setInquiryRef] = useState<string | null>(null);
+  const backdropRef = useRef<HTMLDivElement>(null);
+
+  // Lock body scroll and listen for Escape key when modal is open
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const originalOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        handleReset();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      document.body.style.overflow = originalOverflow;
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [isOpen]);
 
   if (!isOpen) return null;
 
@@ -64,9 +86,25 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
     onClose();
   };
 
+  const handleBackdropClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (e.target === backdropRef.current) {
+      handleReset();
+    }
+  };
+
   return (
-    <div className="fixed inset-0 z-50 overflow-y-auto bg-navy-950/80 backdrop-blur-md flex items-center justify-center p-4">
-      <div className="relative bg-navy-900 border border-slate-700/80 rounded-2xl max-w-lg w-full p-6 sm:p-8 shadow-2xl text-left max-h-[90dvh] flex flex-col">
+    <div
+      ref={backdropRef}
+      onClick={handleBackdropClick}
+      className="fixed inset-0 z-50 overflow-y-auto bg-navy-950/80 backdrop-blur-md flex items-center justify-center p-4 animate-in fade-in duration-150"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="consult-modal-title"
+    >
+      <div
+        className="relative bg-navy-900 border border-slate-700/80 rounded-2xl max-w-lg w-full p-6 sm:p-8 shadow-2xl text-left max-h-[90dvh] flex flex-col"
+        onClick={(e) => e.stopPropagation()}
+      >
         
         {/* Close Button with standard touch target */}
         <button
@@ -82,7 +120,7 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
             <div className="w-16 h-16 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 mx-auto flex items-center justify-center mb-4">
               <CheckCircle2 className="w-8 h-8" />
             </div>
-            <h3 className="text-2xl font-bold text-white mb-2 font-heading">
+            <h3 id="consult-modal-title" className="text-2xl font-bold text-white mb-2 font-heading">
               Consultation Requested
             </h3>
             <p className="text-slate-300 text-sm max-w-md mx-auto mb-4 leading-relaxed">
@@ -104,7 +142,7 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
               <span className="text-xs font-semibold uppercase tracking-wider text-cyan-400">
                 Direct Client Advisory
               </span>
-              <h3 className="text-xl sm:text-2xl font-bold text-white font-heading mt-1">
+              <h3 id="consult-modal-title" className="text-xl sm:text-2xl font-bold text-white font-heading mt-1">
                 Request an IT Consultation
               </h3>
               <p className="text-xs sm:text-sm text-slate-400 mt-1">
