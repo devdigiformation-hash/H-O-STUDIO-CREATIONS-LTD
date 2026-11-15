@@ -10,11 +10,11 @@ export const CINEMATIC_SEQUENCES: SequenceConfig[] = [
     ctaAction: "services",
     desktopPosition: "fullscreen",
     folder: "/sequences/video_01/",
-    frameCount: 60,
-    approvedDuration: 14.92,
-    approvedEndSeconds: 14.92,
-    trimPolicy: "0.000s - 14.916s (Full valid clip)",
-    validationStatus: "VERIFIED_FULL"
+    frameCount: 50,
+    approvedDuration: 10.00,
+    approvedEndSeconds: 10.00,
+    trimPolicy: "0.000s - 10.000s (Full 50-frame approved sequence)",
+    validationStatus: "VERIFIED_10S"
   },
   {
     id: "VIDEO_02",
@@ -25,11 +25,11 @@ export const CINEMATIC_SEQUENCES: SequenceConfig[] = [
     ctaAction: "consultation",
     desktopPosition: "right",
     folder: "/sequences/video_02/",
-    frameCount: 40,
+    frameCount: 50,
     approvedDuration: 10.00,
     approvedEndSeconds: 10.00,
-    trimPolicy: "0.000s - 10.000s ONLY (Excluding >= 10.000s)",
-    validationStatus: "VERIFIED_TRIMMED_10S"
+    trimPolicy: "0.000s - 10.000s (Full 50-frame approved sequence)",
+    validationStatus: "VERIFIED_10S"
   },
   {
     id: "VIDEO_03",
